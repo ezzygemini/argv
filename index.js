@@ -18,6 +18,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+const typeOf = require('typeof');
+
 /**
  * Regular expression matcher for the arguments.
  * @type {RegExp}
@@ -59,7 +61,19 @@ class Argv {
    * @returns {*}
    */
   getArgument(name, defaultValue) {
-    return this[name] === undefined ? defaultValue : this[name];
+    name = name.toUpperCase();
+    return this[name] === undefined ?
+      Argv._resolveValue(defaultValue) : this[name];
+  }
+
+  /**
+   * Resolves the value in case is a function.
+   * @param {*} value The value or function to resolve.
+   * @returns {*}
+   * @private
+   */
+  static _resolveValue(value){
+    return typeOf(value, 'function') ? value() : value;
   }
 
 }

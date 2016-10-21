@@ -5,5 +5,8 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:ezzygemini/argv.git"
+  },
+  "dependencies": {
+    "typeof": "git@github.com:ezzygemini/typeof.git#head"
   }
 }
