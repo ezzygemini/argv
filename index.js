@@ -41,6 +41,27 @@ class Argv {
 
   }
 
+  /**
+   * Sets a property if is undefined.
+   * @param {string} name The name of the argument.
+   * @param {*} value The value of the argument.
+   */
+  setIfUndefined(name, value) {
+    if (this[name] === undefined) {
+      this[name] = value;
+    }
+  }
+
+  /**
+   * Gets the argument defined or the default value indicated.
+   * @param {string} name The name of the argument.
+   * @param {*} defaultValue The default value.
+   * @returns {*}
+   */
+  getArgument(name, defaultValue) {
+    return this[name] === undefined ? defaultValue : this[name];
+  }
+
 }
 
 module.exports = Argv;
