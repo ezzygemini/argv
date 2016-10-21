@@ -1,0 +1,9 @@
+{
+  "name": "argv",
+  "description": "Argument processor",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ezzygemini/argv.git"
+  }
+}
